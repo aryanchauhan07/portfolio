@@ -26,7 +26,7 @@ const projects = [
     ],
 
     caseStudy: "#",
-    viewLink: "https://www.figma.com/...", // update if needed
+    viewLink: "hhttps://www.behance.net/gallery/229636295/caro/modules/1315761099", // update if needed
   },
 
   {
