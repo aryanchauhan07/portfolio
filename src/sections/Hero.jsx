@@ -66,21 +66,23 @@ function App() {
     gsap.to(".character", {
       scale: 1.4,
       x: "-50%",
-      bottom: "-25%",
+      // bottom: "-25%", ❌ comment ya remove kar de
       rotate: 0,
       duration: 2,
       delay: "-.8",
       ease: "Expo.easeInOut",
     });
+
+    const isMobile = window.innerWidth <= 768;
 
     gsap.to(".text", {
       scale: 1,
       rotate: 0,
+      top: isMobile ? "8%" : "2%", // ✅ Mobile ke liye text niche
       duration: 2,
       delay: "-.8",
       ease: "Expo.easeInOut",
     });
-
     const main = document.querySelector(".main");
 
     main?.addEventListener("mousemove", function (e) {
@@ -266,12 +268,11 @@ function App() {
               </div>
 
               {/* my own image */}
-<img
-  className="absolute character left-1/2 -translate-x-1 bottom-24 sm:bottom-16 md:bottom-8 w-[60vw] max-w-[380px] h-auto rotate-[-10deg]"
-  src="./me.png"
-  alt=""
-/>
-
+              <img
+                className="absolute character left-1/2 -translate-x-1 bottom-24 sm:bottom-16 md:bottom-8 w-[60vw] max-w-[380px] h-auto rotate-[-10deg]"
+                src="./me.png"
+                alt=""
+              />
             </div>
 
             {/* scroll icon */}
