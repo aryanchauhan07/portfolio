@@ -246,7 +246,7 @@ function App() {
               />
 
               {/* text behind the images */}
-              <div className="text text-white flex flex-col absolute top-[1%] left-1/2 -translate-x-1/2 rotate-[-10deg] text-center">
+              <div className="text text-white flex flex-col absolute top-[2%] left-1/2 -translate-x-1/2 rotate-[-10deg] text-center">
                 {/* Word 1: Designer - Top Right */}
                 <h1 className="text-[3.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] xl:text-[8rem] leading-none">
                   Designer.
@@ -268,7 +268,7 @@ function App() {
               {/* my own image */}
 
               <img
-                className="absolute character left-1/2 -translate-x-1 bottom-0 w-[300px] md:w-[380px] h-[auto] rotate-[-10deg] -ml-10"
+                className="absolute character left-1/2 -translate-x-1 bottom-1 w-[60vw] max-w-[380px] h-auto rotate-[-10deg] -ml-10 sm:w-[300px] md:w-[360px] lg:w-[380px]"
                 src="./me.png"
                 alt=""
               />
