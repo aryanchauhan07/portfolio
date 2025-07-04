@@ -266,12 +266,12 @@ function App() {
               </div>
 
               {/* my own image */}
+<img
+  className="absolute character left-1/2 -translate-x-1/2 bottom-24 sm:bottom-16 md:bottom-8 w-[60vw] max-w-[380px] h-auto rotate-[-10deg]"
+  src="./me.png"
+  alt=""
+/>
 
-              <img
-                className="absolute character left-1/2 -translate-x-1/2 bottom-8 sm:bottom-4 md:bottom-2 w-[60vw] max-w-[380px] h-auto rotate-[-10deg]"
-                src="./me.png"
-                alt=""
-              />
             </div>
 
             {/* scroll icon */}
