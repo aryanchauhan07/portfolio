@@ -68,7 +68,7 @@ function App() {
 gsap.to(".character", {
   scale: 1.4,
   x: "-50%",
-  bottom: isMobile ? "5%" : "-25%", // ✅ Mobile pe 5%, desktop pe -25%
+  bottom: isMobile ? "3%" : "-25%", // ✅ Mobile pe 5%, desktop pe -25%
   rotate: 0,
   duration: 2,
   delay: "-.8",
