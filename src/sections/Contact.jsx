@@ -16,7 +16,7 @@ const ContactSection = () => {
         "service_g9e6hpo",
         "template_hd6ayep",
         form.current,
-        "XKjKD54pqT-WuYdbyp"
+        "KjKD54pqT-WuYdbyp"
       )
       .then(
         () => {
@@ -77,7 +77,7 @@ const ContactSection = () => {
               <i className="ri-instagram-line text-white text-2xl hover:text-purple-400"></i>
             </a>
 
-            <a href="aryxnch@gmail.com" target="_blank" rel="noreferrer">
+            <a href="mailto:aryxnch@gmail.com" target="_blank" rel="noreferrer">
               <i className="ri-mail-line text-white text-2xl hover:text-purple-400"></i>
             </a>
           </div>
