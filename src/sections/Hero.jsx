@@ -268,7 +268,7 @@ function App() {
               {/* my own image */}
 
               <img
-                className="absolute character left-1/2 -translate-x-1/2 w-[60vw] max-w-[380px] h-auto rotate-[-10deg] -ml-10 bottom-8 sm:bottom-4 md:bottom-2"
+                className="absolute character left-1/2 -translate-x-1/2 bottom-8 sm:bottom-4 md:bottom-2 w-[60vw] max-w-[380px] h-auto rotate-[-10deg]"
                 src="./me.png"
                 alt=""
               />
