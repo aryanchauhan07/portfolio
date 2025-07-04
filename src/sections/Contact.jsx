@@ -70,10 +70,14 @@ const ContactSection = () => {
               <i className="ri-twitter-x-line text-white text-2xl hover:text-purple-400"></i>
             </a> */}
             <a
-              href="aryxnch@gmail.com"
+              href="https://www.instagram.com/_aryanchauhan__/"
               target="_blank"
               rel="noreferrer"
             >
+              <i className="ri-instagram-line text-white text-2xl hover:text-purple-400"></i>
+            </a>
+
+            <a href="aryxnch@gmail.com" target="_blank" rel="noreferrer">
               <i className="ri-mail-line text-white text-2xl hover:text-purple-400"></i>
             </a>
           </div>
