@@ -63,17 +63,19 @@ function App() {
       ease: "Expo.easeInOut",
     });
 
-    gsap.to(".character", {
-      scale: 1.4,
-      x: "-50%",
-      // bottom: "-25%", ❌ comment ya remove kar de
-      rotate: 0,
-      duration: 2,
-      delay: "-.8",
-      ease: "Expo.easeInOut",
-    });
-
     const isMobile = window.innerWidth <= 768;
+
+gsap.to(".character", {
+  scale: 1.4,
+  x: "-50%",
+  bottom: isMobile ? "5%" : "-25%", // ✅ Mobile pe 5%, desktop pe -25%
+  rotate: 0,
+  duration: 2,
+  delay: "-.8",
+  ease: "Expo.easeInOut",
+});
+
+
 
     gsap.to(".text", {
       scale: 1,
