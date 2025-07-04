@@ -10,9 +10,9 @@ const projects = [
       "Assistly is an emotionally intelligent AI assistant designed to support users not just functionally, but emotionally.",
       "It adapts to your mood, routines, and environment — offering calm, personalized experiences that evolve with you.",
     ],
-    caseStudy: "#", // optional: link to Notion or PDF
+    caseStudy: "https://www.behance.net/gallery/229555751/Assistly/modules/1315240767", // optional: link to Notion or PDF
     viewLink:
-      "https://www.figma.com/proto/idQQi1QtNP7wMymX1uVmMS/Assistly-Aryan",
+      "https://www.figma.com/proto/idQQi1QtNP7wMymX1uVmMS/Assistly-Aryan?page-id=0%3A1&node-id=1-302&p=f&viewport=66%2C-181%2C0.1&t=2vF28l0q9IEax0OA-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A261&show-proto-sidebar=1",
   },
 
   {
