@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); /* ✅ Sabse upar hona chahiye */
+@import "tailwindcss"; /* ✅ Iske baad */
+
+@font-face {
+  font-family: "pricedown";
+  src: url("./pricedown.otf");
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "pricedown", sans-serif;
+ background-color: black;
+ scroll-behavior: smooth;
+}
+
+
+
