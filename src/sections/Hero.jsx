@@ -80,7 +80,7 @@ gsap.to(".character", {
     gsap.to(".text", {
       scale: 1,
       rotate: 0,
-      top: isMobile ? "8%" : "2%", // ✅ Mobile ke liye text niche
+      top: isMobile ? "14%" : "2%", // ✅ Mobile ke liye text niche
       duration: 2,
       delay: "-.8",
       ease: "Expo.easeInOut",
