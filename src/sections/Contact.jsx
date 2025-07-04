@@ -13,10 +13,10 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_jf7oato",
-        "template_yu2wrta",
+        "service_g9e6hpo",
+        "template_hd6ayep",
         form.current,
-        "X8QfBJu4IBw1CNUex"
+        "XKjKD54pqT-WuYdbyp"
       )
       .then(
         () => {
@@ -70,11 +70,11 @@ const ContactSection = () => {
               <i className="ri-twitter-x-line text-white text-2xl hover:text-purple-400"></i>
             </a> */}
             <a
-              href="https://www.instagram.com/_aryanchauhan__/"
+              href="aryxnch@gmail.com"
               target="_blank"
               rel="noreferrer"
             >
-              <i className="ri-instagram-line text-white text-2xl hover:text-purple-400"></i>
+              <i className="ri-mail-line text-white text-2xl hover:text-purple-400"></i>
             </a>
           </div>
         </div>
