@@ -38,8 +38,8 @@ const projects = [
     "Croaks is a smart, intuitive weather app built for both farmers and everyday users, blending clarity with purpose.",
     "Designed to decode real-time forecasts into visuals and tips, it features Root Mode for growers and Sky Mode for goers — making weather personal, practical, and poetic.",
   ],
-  caseStudy: "#",
-  viewLink: "https://www.figma.com/...", // update if needed
+  caseStudy: "https://www.behance.net/gallery/229633181/croak/modules/1315742579",
+  viewLink: "https://www.figma.com/proto/5zi5gNdYHAkj70ap3pbeP5/Croak?page-id=1%3A2&node-id=124-6949&viewport=492%2C155%2C0.05&t=aQScXGCpf3aIRTfJ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=124%3A6949", // update if needed
 },
 
 
