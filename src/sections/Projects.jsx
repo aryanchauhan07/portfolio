@@ -26,7 +26,7 @@ const projects = [
     ],
 
     caseStudy: "#",
-    viewLink: "hhttps://www.behance.net/gallery/229636295/caro/modules/1315761099", // update if needed
+    viewLink: "https://www.behance.net/gallery/229636295/caro/modules/1315761099", // update if needed
   },
 
   {
@@ -56,7 +56,7 @@ const projects = [
     underConstruction: true,
 
     caseStudy: "#",
-    viewLink: "https://www.behance.net/gallery/229636295/_/modules/1315761099", // placeholder
+    viewLink: "", // placeholder
   },
 
   {
