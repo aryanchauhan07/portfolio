@@ -7,10 +7,10 @@ export default function WorkExperience() {
     role: "UI/UX & Branding Designer",
     project: "Competitive Design Projects",
     bullets: [
-      "🏆 Secured 2nd Runner-Up at IIT Roorkee's Brandstorm for a rebranding challenge.",
-      "🎯 Participated in IIT Roorkee’s ZENIGMA UI/UX competition, focusing on design thinking & emotional UX.",
-      "🥇 Won 1st place in a college-level rebranding contest by redesigning Zepto’s visual identity.",
-      "💡 Developed strong visual storytelling skills by balancing user empathy with modern aesthetics.",
+      " Secured 2nd Runner-Up at IIT Roorkee's Brandstorm for a rebranding challenge.",
+      " Participated in IIT Roorkee’s ZENIGMA UI/UX competition, focusing on design thinking & emotional UX.",
+      " Won 1st place in a college-level rebranding contest by redesigning Zepto’s visual identity.",
+      " Developed strong visual storytelling skills by balancing user empathy with modern aesthetics.",
     ],
   },
 ];
