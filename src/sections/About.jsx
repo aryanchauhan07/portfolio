@@ -58,7 +58,7 @@ const AboutMeSection = () => {
   return (
     <section
       id="about"
-      className="w-full px-6 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-black to-[#0f0f11] text-white font-sans "
+      className="w-full px-6 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-black to-[#0f0f11] text-white  "
     >
       {/* HEADING */}
       <h2 className="text-4xl sm:text-5xl font-semibold mb-12 font-pricedown text-center md:text-left">
@@ -70,7 +70,7 @@ const AboutMeSection = () => {
         {/* LEFT SIDE */}
         <div className="flex flex-col gap-6">
           {/* INTRO CARD */}
-          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#242643] via-[#2d2f4a] to-[#1c1e2b] border border-white/10 shadow-lg backdrop-blur-md">
+          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#242643] via-[#2d2f4a] to-[#1c1e2b] border border-white/10 shadow-lg backdrop-blur-md font-sans">
             <h3 className="text-2xl font-bold mb-3">Hi, I'm Aryan</h3>
             <p className="text-gray-300 leading-relaxed text-sm md:text-base space-y-2">
               <span>
@@ -110,7 +110,7 @@ const AboutMeSection = () => {
           </div>
 
           {/* TIME ZONE CARD */}
-          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#23232f] via-[#1b1b28] to-[#101018] border border-white/10 shadow-lg backdrop-blur-md">
+          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#23232f] via-[#1b1b28] to-[#101018] border border-white/10 shadow-lg backdrop-blur-md font-sans">
             <h3 className="text-xl font-bold mb-3">Time Zone</h3>
             <p className="text-gray-300 text-sm md:text-base">
               I’m based in India 🇮🇳 and open to remote work across all time zones.
@@ -119,7 +119,7 @@ const AboutMeSection = () => {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 font-sans">
           {/* SKILLS CARD */}
           <div className="rounded-2xl p-6 bg-gradient-to-br from-[#22223D] via-[#1c1e2b] to-[#0f0f11] border border-white/10 shadow-lg backdrop-blur-md">
             <h3 className="text-xl font-bold mb-4">Skills</h3>
@@ -136,7 +136,7 @@ const AboutMeSection = () => {
           </div>
 
           {/* CURRENTLY LEARNING CARD */}
-          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#1c1e2b] via-[#2d2f4a] to-[#242643] border border-white/10 shadow-lg backdrop-blur-md">
+          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#1c1e2b] via-[#2d2f4a] to-[#242643] border border-white/10 shadow-lg backdrop-blur-md font-sans">
             <h3 className="text-xl font-bold mb-3">Currently Learning</h3>
             <ul className="text-gray-300 list-disc pl-5 space-y-2 text-sm md:text-base">
               <li>Data Structures & Algorithms (DSA)</li>
