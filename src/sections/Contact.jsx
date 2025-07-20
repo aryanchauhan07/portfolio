@@ -49,7 +49,7 @@ const ContactSection = () => {
           </p>
           <div className="flex gap-4 mt-6">
             <a
-              href="https://gist.github.com/aryanchauhan07"
+              href="https://github.com/aryanchauhan07"
               target="_blank"
               rel="noreferrer"
             >
@@ -93,7 +93,7 @@ const ContactSection = () => {
             <h3 className="text-sm tracking-widest text-purple-300 uppercase font-sans">
               Get in touch
             </h3>
-            <h2 className="text-4xl font-bold text-white mb-4 ">Contact.</h2>
+            <h2 className="text-4xl  text-white mb-4 ">Contact.</h2>
           </div>
 
           <div className="space-y-4 font-sans">

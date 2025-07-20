@@ -18,7 +18,7 @@ export default function WorkExperience() {
 
   return (
     <section className="w-full px-6 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-[#0f0f11] via-[#0f0f11] to-[#0f0f11] text-white font-sans" id="experience">
-      <h1 className="text-4xl sm:text-5xl font-bold font-[pricedown] mb-16 text-left">
+      <h1 className="text-4xl sm:text-5xl  font-[pricedown] mb-16 text-left">
         MY EXPERIENCE
       </h1>
 

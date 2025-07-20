@@ -61,7 +61,7 @@ const AboutMeSection = () => {
       className="w-full px-6 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-black to-[#0f0f11] text-white  "
     >
       {/* HEADING */}
-      <h2 className="text-4xl sm:text-5xl font-semibold mb-12 font-pricedown text-center md:text-left">
+      <h2 className="text-4xl sm:text-5xl mb-12 font-pricedown text-center md:text-left">
         About Me
       </h2>
 

@@ -97,7 +97,7 @@ const ProjectsSection = () => {
       className="w-full px-6 md:px-16 lg:px-24 py-20 bg-[#0f0f11] text-white"
       id="projects"
     >
-      <h2 className="text-4xl sm:text-5xl font-semibold mb-8 font-pricedown">
+      <h2 className="text-4xl sm:text-5xl  mb-8 font-pricedown">
         Projects
       </h2>
 
