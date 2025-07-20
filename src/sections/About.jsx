@@ -136,7 +136,7 @@ const AboutMeSection = () => {
           </div>
 
           {/* CURRENTLY LEARNING CARD */}
-          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#1c1e2b] via-[#2d2f4a] to-[#242643] border border-white/10 shadow-lg backdrop-blur-md font-sans">
+          <div className="rounded-2xl p-6 bg-gradient-to-br from-[#1c1e2b] via-[#2d2f4a] to-[#242643] border border-white/10 shadow-lg backdrop-blur-md ">
             <h3 className="text-xl font-bold mb-3">Currently Learning</h3>
             <ul className="text-gray-300 list-disc pl-5 space-y-2 text-sm md:text-base">
               <li>Data Structures & Algorithms (DSA)</li>
@@ -147,7 +147,7 @@ const AboutMeSection = () => {
         </div>
 
         {/* FULL WIDTH TECH STACK */}
-        <div className="rounded-2xl p-6 md:col-span-2 bg-gradient-to-br from-[#9810FA] via-[#22223D] to-[#1c1e2b] border border-white/10 shadow-lg backdrop-blur-md">
+        <div className="rounded-2xl p-6 md:col-span-2 bg-gradient-to-br from-[#9810FA] via-[#22223D] to-[#1c1e2b] border border-white/10 shadow-lg backdrop-blur-md font-sans">
           <h3 className="text-2xl font-bold mb-3">Tech Stack</h3>
           <p className="text-gray-300 mb-4 text-sm md:text-base">
             Tools that shape my work — and make building feel effortless.
