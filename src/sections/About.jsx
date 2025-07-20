@@ -31,7 +31,6 @@ const AboutMeSection = () => {
     "UI Design",
     "UX Research",
     "Front-End Dev",
-    "Javascript",
     "React",
     "Node.js",
     "Express",
