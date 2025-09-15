@@ -61,7 +61,7 @@ const projects = [
 
   {
     title: "Crisp",
-    stack: ["React", "TailwindCSS", "Illustrator", "GSAP"],
+    stack: ["React", "Node.js", "Express.js" , "PostgreSQL" ,"TailwindCSS", "Illustrator", "GSAP"],
     category: "Full Stack",
     image: "/projects/crisp_1.png",
     description: [
