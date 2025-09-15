@@ -60,14 +60,13 @@ const projects = [
   },
 
   {
-    title: "Crispkart",
+    title: "Crisp",
     stack: ["React", "TailwindCSS", "Illustrator", "GSAP"],
-    category: "Frontend",
-    image: "/projects/crispkart.png",
+    category: "Full Stack",
+    image: "/projects/crisp_1.png",
     description: [
-      "Crispkart is a health-focused food ordering website designed for simplicity and wellness.",
-      "With a clean interface, smooth transitions, and intuitive flow, it makes healthy eating just a tap away.",
-      "Tap. Eat. Repeat.",
+      "Crisp AI is a full-stack fitness assistant built with the PERN stack, Gemini AI API, and Clerk authentication.",
+      "It helps users with recipes, meal tracking, and calorie insights, featuring an optimized backend and a sleek React + Tailwind dashboard with dark/light modes.",
     ],
     underConstruction: true,
     caseStudy: "#",
