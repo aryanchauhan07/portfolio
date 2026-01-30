@@ -1,16 +1,93 @@
-<<<<<<< HEAD
-# React + Vite
+Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, animated, and fully responsive personal portfolio built to showcase my projects, skills, and experience in an engaging and interactive way.
 
-Currently, two official plugins are available:
+The website is designed with a strong focus on performance, clean UI, and smooth animations to deliver a polished user experience across all devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tech Stack
 
-## Expanding the ESLint configuration
+React.js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# portfolio
->>>>>>> e2812113a7e56bdf6d6f1d66107f92c94b6e325a
+Tailwind CSS
+
+GSAP
+
+Vite
+
+GitHub
+
+Vercel
+
+Features
+
+Modern and minimal UI design
+
+Fully responsive layout for all screen sizes
+
+Smooth animations using GSAP
+
+Optimized performance and fast load time
+
+Interactive contact form with validation
+
+Automated CI/CD with GitHub and Vercel
+
+Performance and Accessibility
+
+Achieves 95+ Lighthouse score for mobile usability
+
+Optimized for accessibility and responsiveness
+
+Designed to improve user engagement and navigation
+
+Installation and Setup
+
+Clone the repository:
+
+git clone https://github.com/your-username/your-repo-name.git
+
+
+Navigate to the project directory:
+
+cd your-repo-name
+
+
+Install dependencies:
+
+npm install
+
+
+Run the development server:
+
+npm run dev
+
+
+Build for production:
+
+npm run build
+
+Live Demo
+
+https://your-live-link.com
+
+Purpose
+
+This project serves as my personal portfolio to:
+
+Showcase my projects and technical skills
+
+Highlight my frontend development and UI design abilities
+
+Provide a professional platform for recruiters and collaborators to connect with me
+
+Contact
+
+Portfolio: https://your-live-link.com
+
+GitHub: https://github.com/your-username
+
+LinkedIn: https://linkedin.com/in/your-profile
+
+Acknowledgements
+
+Inspired by modern web design practices and built with a focus on clean interfaces and smooth user interactions.
