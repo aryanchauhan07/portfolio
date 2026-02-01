@@ -43,7 +43,7 @@ const projects = [
   description:
     "An intuitive weather application designed for both farmers and urban users, translating complex forecasts into actionable insights. Features dual navigation modes, interactive prototypes, and custom visual elements to improve clarity and decision-making.",
   viewLink:
-    "https://www.figma.com/proto/5zi5gNdYHAkj70ap3pbeP5/Croak",
+    "https://www.figma.com/proto/5zi5gNdYHAkj70ap3pbeP5/Croak?page-id=1%3A2&node-id=124-6949&viewport=534%2C376%2C0.04&t=fXZbLJBwRrZef1sp-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=124%3A6949",
 },
 
   
