@@ -22,7 +22,6 @@ const skills = [
   "MERN Stack Development",
   "Backend APIs",
  "Data Structures & Algorithms",
-  "Design Systems",
   "Prototyping",
   "API Integration",
 ];
