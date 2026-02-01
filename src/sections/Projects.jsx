@@ -1,226 +1,195 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
-  {
-    title: "Assistly",
-    stack: ["Figma", "Adobe Illustrator", "Notion", "Color Hunt"],
-    category: "UI/UX",
-    image: "./projects/Assistly.png",
-    description: [
-      "Assistly is an emotionally intelligent AI assistant designed to support users not just functionally, but emotionally.",
-      "It adapts to your mood, routines, and environment — offering calm, personalized experiences that evolve with you.",
-    ],
-    caseStudy: "#", // optional: link to Notion or PDF
-    viewLink:
-      "https://www.figma.com/proto/idQQi1QtNP7wMymX1uVmMS/Assistly-Aryan?page-id=0%3A1&node-id=1-302&p=f&viewport=66%2C-181%2C0.1&t=2vF28l0q9IEax0OA-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A261&show-proto-sidebar=1",
-  },
 
   {
-    title: "Caro",
-    stack: ["Figma", "Notion", "Adobe Illustrator", "Color Hunt"],
-    category: "UI/UX",
-    image: "/projects/caro.png",
-    description: [
-      "This was a rebranding of ‘Kubo Care’, a healthcare startup offering privacy-first monitoring for seniors using radar-based tech.",
-      "The challenge was to humanize the brand — turning a clinical product into a trusted companion by balancing empathy with innovation.",
-    ],
-
-    caseStudy: "#",
-    viewLink: "https://www.behance.net/gallery/229636295/caro/modules/1315761099", // update if needed
-  },
-
-  {
+  title: "Crisp AI",
+  stack: ["MongoDB", "Express.js", "React", "Node.js", "Google Gemini API", "Tailwind CSS"],
+  category: "Full Stack",
+  image: "/projects/crisp.png",
+  description:
+    "An AI-powered fitness and nutrition platform that analyzes meals, tracks daily health data, and provides personalized insights using Generative AI. Features secure authentication, real-time chat with AI, and an interactive dashboard for monitoring nutrition progress.",
+  viewLink: "https://crispcart.vercel.app/",
+},
+ {
+  title: "Assistly",
+  stack: ["Figma", "Adobe Illustrator", "Notion"],
+  category: "UI/UX",
+  image: "./projects/Assistly.png",
+  description:
+    "A personalized AI assistant concept designed to adapt to users’ moods, routines, and environments. Built using user-centered design principles with high-fidelity prototypes, emotion-driven visuals, and usability testing to improve task success and user engagement.",
+  viewLink:
+    "https://www.figma.com/proto/idQQi1QtNP7wMymX1uVmMS/Assistly-Aryan",
+},
+{
+  title: "Caro",
+  stack: ["Figma", "Notion", "Adobe Illustrator"],
+  category: "UI/UX",
+  image: "/projects/caro.png",
+  description:
+    "A healthcare startup rebranding project focused on humanizing senior care technology. The redesign emphasizes clarity, trust, and emotional connection through a refined visual identity, structured user flows, and an accessible interface system.",
+  viewLink:
+    "https://www.behance.net/gallery/229636295/caro/modules/1315761099",
+},
+{
   title: "Croaks",
-  stack: ["Figma", "Notion", "Adobe Illustrator", "Color Hunt"],
+  stack: ["Figma", "Notion", "Adobe Illustrator"],
   category: "UI/UX",
   image: "/projects/croak.png",
-  description: [
-    "Croaks is a smart, intuitive weather app built for both farmers and everyday users, blending clarity with purpose.",
-    "Designed to decode real-time forecasts into visuals and tips, it features Root Mode for growers and Sky Mode for goers — making weather personal, practical, and poetic.",
-  ],
-  caseStudy: "https://www.behance.net/gallery/229633181/croak/modules/1315742579",
-  viewLink: "https://www.figma.com/proto/5zi5gNdYHAkj70ap3pbeP5/Croak?page-id=1%3A2&node-id=124-6949&viewport=492%2C155%2C0.05&t=aQScXGCpf3aIRTfJ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=124%3A6949", // update if needed
+  description:
+    "An intuitive weather application designed for both farmers and urban users, translating complex forecasts into actionable insights. Features dual navigation modes, interactive prototypes, and custom visual elements to improve clarity and decision-making.",
+  viewLink:
+    "https://www.figma.com/proto/5zi5gNdYHAkj70ap3pbeP5/Croak",
+},
+
+  
+ {
+  title: "The Ordinary — Rebrand",
+  stack: ["Figma", "Adobe Illustrator", "Brand Strategy", "Design Systems", "Prototyping"],
+  category: "UI/UX",
+  image: "/projects/ordinary.png",
+  description:
+    "A complete brand and digital experience redesign for The Ordinary as part of a rebranding competition. The project reimagines visual identity, packaging, and digital interfaces with a focus on clarity, consistency, and a more emotionally engaging user experience while preserving the brand’s minimalist essence.",
+  viewLink: "https://www.behance.net/gallery/243309619/The-Ordinary-A-Brand-Rebranding-Concept/modules/1403778615",
 },
 
 
-  {
-    title: "Ride",
-    stack: ["React", "Node.js", "Express.js", "MongoDB", "Illustrator", "GSAP"],
-    category: "Full Stack",
-    image: "/projects/ride.png",
-    description: [
-      "Ride is a cab booking platform built to deliver comfort, reliability, and ease at every step.",
-      "From smooth pre-booking to real-time fare insights, it’s designed for users who value seamless, stress-free travel.",
-      "Effortless travel, every time.",
-    ],
-    underConstruction: true,
-
-    caseStudy: "#",
-    viewLink: "", // placeholder
-  },
-
-  {
-    title: "Crisp",
-    stack: ["React", "Node.js", "Express.js" , "PostgreSQL" ,"TailwindCSS", "Illustrator", "GSAP"],
-    category: "Full Stack",
-    image: "/projects/crisp_1.png",
-    description: [
-      "Crisp AI is a full-stack fitness assistant built with the PERN stack, Gemini AI API, and Clerk authentication.",
-      "It helps users with recipes, meal tracking, and calorie insights, featuring an optimized backend and a sleek React + Tailwind dashboard with dark/light modes.",
-    ],
-    underConstruction: true,
-    caseStudy: "#",
-    viewLink: "", // placeholder
-  },
 ];
 
-const categories = ["All Projects", "Full Stack", "Frontend", "UI/UX"];
+const Projects = () => {
+  const [filter, setFilter] = useState("All");
 
-const ProjectsSection = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [activeCategory, setActiveCategory] = useState("All Projects");
-  const [activePopup, setActivePopup] = useState(null);
-
-  const handleMouseMove = (e) => {
-    setCursorPos({ x: e.clientX, y: e.clientY });
-  };
+  const filters = ["All", "UI/UX", "Full Stack"];
 
   const filteredProjects =
-    activeCategory === "All Projects"
+    filter === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.category === filter);
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".project-row",
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: "#projects",
+          start: "top 75%",
+        },
+      }
+    );
+  }, [filteredProjects]);
 
   return (
     <section
-      className="w-full px-6 md:px-16 lg:px-24 py-20 bg-[#0f0f11] text-white"
       id="projects"
+      className="relative w-full py-16 md:py-32 px-4 md:px-6 text-white overflow-hidden"
     >
-      <h2 className="text-4xl sm:text-5xl  mb-8 font-pricedown">
-        Projects
-      </h2>
+      <div className="relative max-w-7xl mx-auto space-y-12 md:space-y-20">
 
-      <div className="flex flex-wrap gap-3 mb-10 font-sans font-bold">
-        {categories.map((cat, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-full border ${
-              activeCategory === cat
-                ? "bg-purple-600 text-white border-purple-500"
-                : "bg-transparent text-gray-300 border-gray-600"
-            } hover:bg-purple-800 transition text-sm`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      <div className="space-y-10 font-sans relative z-0">
-        {filteredProjects.map((project, index) => (
-          <div
-            key={index}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            onMouseMove={handleMouseMove}
-            className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-700 pb-6 relative"
-          >
-            <div>
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <div className="flex flex-wrap gap-3 text-sm text-yellow-400">
-                {project.stack.map((tech, i) => (
-                  <span key={i}>{tech}</span>
-                ))}
-              </div>
-              <span className="mt-2 inline-block text-xs px-3 py-1 border border-purple-500 text-purple-400 rounded-full font-semibold tracking-wide">
-                {project.category}
-              </span>
-              {project.underConstruction && (
-                <span className="ml-3 text-xs text-gray-400 font-medium">
-                  This project is under construction
-                </span>
-              )}
-            </div>
-
-            <button
-              onClick={() => setActivePopup(project)}
-              className="mt-4 sm:mt-0 text-sm text-white flex items-center gap-2 group hover:underline"
-            >
-              Read More{" "}
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </button>
-
-            {hoveredIndex === index && (
-              <img
-                src={project.image}
-                alt="preview"
-                style={{ left: cursorPos.x + 20, top: cursorPos.y - 20 }}
-                className="fixed z-50 w-40 h-24 object-cover rounded-md shadow-lg border border-white/10 pointer-events-none"
-              />
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* POPUP MODAL */}
-      {activePopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 z-[999] flex items-center justify-center p-6 font-sans">
-          <div className="bg-[#1a1a1d] rounded-xl max-w-xl w-full p-6 text-white relative">
-            <button
-              onClick={() => setActivePopup(null)}
-              className="absolute top-3 right-4 text-white text-xl"
-            >
-              ✕
-            </button>
-            <img
-              src={activePopup.image}
-              className="w-full h-52 object-cover rounded-lg mb-4"
-              alt={activePopup.title}
-            />
-            <h3 className="text-2xl font-semibold mb-2">{activePopup.title}</h3>
-            <p className="text-sm text-gray-300 mb-4">
-              {activePopup.description}
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              {activePopup.caseStudy && activePopup.caseStudy !== "#" && (
-                <a
-                  href={activePopup.caseStudy}
-                  className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Case Study
-                </a>
-              )}
-
-             {!activePopup.viewLink ? (
-  <button
-    onClick={() =>
-      alert("🚧 This project is currently under construction. Come back soon!")
-    }
-    className="px-4 py-2 border border-white text-white rounded hover:bg-white hover:text-black"
-  >
-    View Project
-  </button>
-) : (
-  <a
-    href={activePopup.viewLink}
-    className="px-4 py-2 border border-white text-white rounded hover:bg-white hover:text-black"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Project
-  </a>
-)}
-
-            </div>
-          </div>
+        {/* HEADER */}
+        <div className="text-center space-y-4">
+          <h2 className="text-[clamp(2rem,6vw,4rem)] font-bold">
+            Selected Work
+          </h2>
+          <p className="text-white/70 max-w-xl mx-auto text-sm md:text-base">
+            A curated collection of projects blending design and development.
+          </p>
         </div>
-      )}
+
+        {/* FILTER */}
+        <div className="flex justify-center gap-3 flex-wrap">
+          {filters.map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className="px-4 md:px-5 py-2 rounded-full border transition text-sm md:text-base"
+              style={{
+                borderColor: "#C17AFE",
+                background: filter === f ? "#C17AFE" : "transparent",
+                color: filter === f ? "#0f0f12" : "#C17AFE",
+              }}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
+        {/* PROJECT LIST */}
+        <div className="space-y-16 md:space-y-28">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={project.title}
+              className={`project-row grid md:grid-cols-2 gap-8 md:gap-12 items-center ${
+                index % 2 === 1 ? "md:grid-flow-dense" : ""
+              }`}
+            >
+              {/* IMAGE */}
+              <div className="relative group overflow-hidden rounded-2xl md:rounded-3xl">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                {project.viewLink && (
+                  <a
+                    href={project.viewLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
+                  >
+                    <span className="px-6 py-3 rounded-full bg-[#C17AFE] text-[#0f0f12] font-semibold">
+                      View Project
+                    </span>
+                  </a>
+                )}
+              </div>
+
+              {/* TEXT */}
+              <div className="space-y-4 md:space-y-5">
+                <span className="text-sm text-[#C17AFE] uppercase tracking-wider">
+                  {project.category}
+                </span>
+
+                <h3 className="text-2xl md:text-3xl font-semibold">
+                  {project.title}
+                </h3>
+
+                <p className="text-white/75 leading-relaxed text-sm md:text-base">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 md:gap-3 pt-2">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 md:px-4 py-1 rounded-full border text-xs md:text-sm"
+                      style={{
+                        borderColor: "#C17AFE",
+                        color: "#C17AFE",
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
     </section>
   );
 };
 
-export default ProjectsSection;
+export default Projects;

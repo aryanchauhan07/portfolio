@@ -1,50 +1,94 @@
-import React from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function WorkExperience() {
- const experiences = [
+gsap.registerPlugin(ScrollTrigger);
+
+const Experiences = () => {
+  const sectionRef = useRef(null);
+
+  const experiences = [
   {
-    period: "2023–Present",
-    role: "UI/UX & Branding Designer",
-    project: "Competitive Design Projects",
-    bullets: [
-      " Secured 2nd Runner-Up at IIT Roorkee's Brandstorm for a rebranding challenge.",
-      " Participated in IIT Roorkee’s ZENIGMA UI/UX competition, focusing on design thinking & emotional UX.",
-      " Won 1st place in a college-level rebranding contest by redesigning Zepto’s visual identity.",
-      " Developed strong visual storytelling skills by balancing user empathy with modern aesthetics.",
-    ],
-  },
-];
+  role: "Frontend Developer & UI/UX Designer Intern",
+  company: "Cinovex",
+  period: "May 2025 - july 2025",
+  description: [
+    "Designed the UI/UX for a legal-tech website in collaboration with MNLU law students.",
+    "Built the frontend interface with a focus on clarity, accessibility, and structured legal content.",
+  ],
+},
 
+
+   {
+  role: "Winner — ML/AI Hackathon",
+  company: "StartQuest, IIT Kharagpur",
+  period: "24 Jan 2026",
+  description: [
+    "Won first place at a national-level ML/AI hackathon with an AI-driven solution.",
+    "Built and presented a user-focused ML product under strict time constraints.",
+  ],
+},
+
+
+
+  ];
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".exp-card",
+      { opacity: 0, y: 80 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.25,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      }
+    );
+  }, []);
 
   return (
-    <section className="w-full px-6 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-[#0f0f11] via-[#0f0f11] to-[#0f0f11] text-white font-sans" id="experience">
-      <h1 className="text-4xl sm:text-5xl  font-[pricedown] mb-16 text-left">
-        MY EXPERIENCE
-      </h1>
+    <section
+      ref={sectionRef}
+      id="experience"
+      className="relative w-full py-20 md:py-36 px-4 md:px-12 text-white overflow-hidden"
+    >
+      <div className="relative max-w-6xl mx-auto space-y-14 md:space-y-24">
+        {/* header */}
+        <div className="text-center">
+          <h2 className="text-[clamp(2rem,6vw,4rem)] font-semibold text-white">
+            Experience
+          </h2>
+          <p className="text-white/60">Professional journey</p>
+        </div>
 
-      <div className="space-y-12 relative">
-        <div className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600 to-transparent hidden sm:block"></div>
-
-        {experiences.map((exp, idx) => (
-          <div key={idx} className="relative pl-10 sm:pl-20">
-            <div className="absolute left-2 sm:left-4 top-1 w-4 h-4 bg-purple-500 rounded-full border-2 border-white"></div>
-
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-md hover:shadow-purple-500/20 transition duration-300">
-              <div className="flex items-center gap-4 mb-2">
-                <i className="ri-briefcase-4-fill text-purple-400 text-xl" />
-                <h3 className="text-xl font-bold">{exp.role}</h3>
-              </div>
-              <p className="text-sm text-purple-300 mb-1">{exp.project}</p>
-              <p className="text-sm text-gray-400 mb-4">{exp.period}</p>
-              <ul className="list-disc list-inside text-base text-gray-300 space-y-1">
-                {exp.bullets.map((point, i) => (
-                  <li key={i}>{point}</li>
+        {/* cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+          {experiences.map((exp, i) => (
+            <div
+              key={i}
+              className="exp-card p-6 md:p-10 rounded-2xl md:rounded-3xl bg-black/40 border border-white/10 backdrop-blur"
+            >
+              <span className="text-xs text-purple-400">{exp.period}</span>
+              <h3 className="text-xl md:text-2xl mt-3">{exp.role}</h3>
+              <p className="text-purple-400">{exp.company}</p>
+              <ul className="mt-4 space-y-2">
+                {exp.description.map((d, idx) => (
+                  <li key={idx} className="text-white/70 text-sm md:text-base">
+                    — {d}
+                  </li>
                 ))}
               </ul>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Experiences;

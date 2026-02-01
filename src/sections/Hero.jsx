@@ -1,303 +1,145 @@
-import React, { useState } from "react";
-import { useGSAP } from "@gsap/react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "remixicon/fonts/remixicon.css";
-import StickyHeader from "./StickyNav";
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+function Hero() {
+  const heroRef = useRef(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
-function App() {
-  let [showContent, setShowContent] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    if (!imgLoaded) return;
 
-  useGSAP(() => {
-    const tl = gsap.timeline();
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ delay: 0.6 });
 
-    tl.to(".vi-mask-group", {
-      rotate: 10,
-      duration: 2,
-      ease: "Power4.easeInOut",
-      transformOrigin: "50% 50%",
-    }).to(".vi-mask-group", {
-      scale: 10,
-      duration: 2,
-      delay: -1.8,
-      ease: "Expo.easeInOut",
-      transformOrigin: "50% 50%",
-      opacity: 0,
-      onUpdate: function () {
-        if (this.progress() >= 0.9) {
-          document.querySelector(".svg").remove();
-          setShowContent(true);
-          this.kill();
-        }
-      },
-    });
-  });
+      tl.from(".hero-text h1", {
+        y: 50,
+        opacity: 0,
+        stagger: 0.25,
+        duration: 1.5,
+        ease: "power3.out",
+      })
+        .from(
+          ".hero-text p",
+          {
+            y: 25,
+            opacity: 0,
+            duration: 1.1,
+            ease: "power2.out",
+          },
+          "-=0.7"
+        )
+        .from(
+          ".hero-buttons",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 1,
+          },
+          "-=0.7"
+        )
+        .from(
+          ".character",
+          {
+            opacity: 0,
+            scale: 0.92,
+            duration: 2,
+            ease: "power2.out",
+          },
+          "-=1.4"
+        );
+    }, heroRef);
 
-  useGSAP(() => {
-    if (!showContent) return;
-
-    gsap.to(".main", {
-      scale: 1,
-      rotate: 0,
-      duration: 2,
-      delay: "-1",
-      ease: "Expo.easeInOut",
-    });
-
-    gsap.to(".sky", {
-      scale: 1.1,
-      rotate: 0,
-      duration: 2,
-      delay: "-.8",
-      ease: "Expo.easeInOut",
-    });
-
-    gsap.to(".bg", {
-      scale: 1.1,
-      rotate: 0,
-      duration: 2,
-      delay: "-.8",
-      ease: "Expo.easeInOut",
-    });
-
-    const isMobile = window.innerWidth <= 768;
-
-gsap.to(".character", {
-  scale: 1.4,
-  x: "-50%",
-  bottom: isMobile ? "3%" : "-25%", // ✅ Mobile pe 5%, desktop pe -25%
-  rotate: 0,
-  duration: 2,
-  delay: "-.8",
-  ease: "Expo.easeInOut",
-});
-
-
-
-    gsap.to(".text", {
-      scale: 1,
-      rotate: 0,
-      top: isMobile ? "14%" : "2%", // ✅ Mobile ke liye text niche
-      duration: 2,
-      delay: "-.8",
-      ease: "Expo.easeInOut",
-    });
-    const main = document.querySelector(".main");
-
-    main?.addEventListener("mousemove", function (e) {
-      const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
-      gsap.to(".main .text", {
-        x: `${xMove * 0.4}%`,
-      });
-      gsap.to(".sky", {
-        x: xMove,
-      });
-      gsap.to(".bg", {
-        x: xMove * 1.7,
-      });
-    });
-  }, [showContent]);
-
-  {
-    /* main ke baad ke section ka  div*/
-  }
+    return () => ctx.revert();
+  }, [imgLoaded]);
 
   return (
-    <>
-      <div className="svg flex items-center justify-center fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-[#000]">
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <mask id="viMask">
-              <rect width="100%" height="100%" fill="black" />
-              <g className="vi-mask-group">
-                <text
-                  x="50%"
-                  y="50%"
-                  fontSize="250"
-                  textAnchor="middle"
-                  fill="white"
-                  dominantBaseline="middle"
-                  fontFamily="Arial Black"
-                >
-                  AR
-                </text>
-              </g>
-            </mask>
-          </defs>
-          <image
-            href="./bg.png"
-            width="100%"
-            height="100%"
-            preserveAspectRatio="xMidYMid slice"
-            mask="url(#viMask)"
-          />
-        </svg>
-      </div>
+    <section
+      ref={heroRef}
+      id="home"
+      className="relative w-full min-h-screen overflow-hidden bg-black text-white"
+    >
+      {/* BACKGROUND */}
+      <img
+        className="absolute sky top-0 left-0 w-full h-full object-cover"
+        src="./sky.png"
+        alt=""
+        onLoad={() => setImgLoaded(true)}
+      />
+      <img
+        className="absolute bg top-0 left-0 w-full h-full object-cover"
+        src="./bg.png"
+        alt=""
+      />
 
-      {/* <StickyHeader
-  onNavigate={(id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-/> */}
+      {/* CONTENT */}
+      <div className="absolute bottom-0 md:bottom-[-80px] left-0 w-full z-10 px-4 md:px-6 pb-6 md:pb-10">
+        <div
+          className="relative max-w-6xl mx-auto grid md:grid-cols-2 items-end gap-6 md:gap-10
+                     border border-white/10 rounded-2xl md:rounded-3xl px-5 py-6 md:px-10 md:py-10 bg-transparent"
+        >
+          {/* IMAGE */}
+          <div className="relative flex justify-center items-end order-2 md:order-1">
+            <img
+              className="character w-[55vw] md:w-[70vw] max-w-[460px] object-contain bottom-0"
+              src="./ai.png"
+              alt=""
+            />
+          </div>
 
-      {showContent && (
-        <div className="main w-full rotate-[-10deg] scale-[1.7] overflow-hidden">
-          <div className="landing overflow-hidden relative w-full h-screen bg-black">
-            {/* 🔘 Menu Icon */}
-            <div className="navbar fixed top-0 left-0 z-[50] w-full py-4 px-4 sm:py-6 sm:px-6">
-              <div
-                className="logo flex gap-2 sm:gap-3 items-center cursor-pointer scale-100"
-                onClick={() => setMenuOpen(!menuOpen)}
+          {/* TEXT */}
+          <div className="hero-text space-y-4 md:space-y-5 self-center text-center md:text-left order-1 md:order-2">
+            <h1
+              className="text-[clamp(2.8rem,6vw,5rem)] leading-none font-pricedown font-extrabold"
+              style={{ textShadow: "0 6px 25px rgba(0,0,0,0.6)" }}
+            >
+              Designer
+            </h1>
+
+            {/* GRADIENT TEXT */}
+            <h1
+              className="text-[clamp(2.8rem,6vw,5rem)] leading-none font-pricedown font-extrabold"
+              style={{
+                background: "linear-gradient(90deg, #F6D365, #FDA085, #FF9F1C)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                WebkitTextStroke: "1.5px rgba(255,255,255,0.7)",
+                textShadow: "0 6px 30px rgba(255,160,60,0.35)",
+              }}
+            >
+              Developer
+            </h1>
+
+            <div className="hero-buttons flex gap-4 pt-4 justify-center md:justify-start">
+              <a
+                href="#projects"
+                className="px-7 py-3 rounded-full font-semibold text-black
+                           bg-gradient-to-r from-[#F6D365] to-[#FF9F1C]
+                           shadow-[0_0_30px_rgba(255,160,60,0.45)]
+                           hover:scale-105 transition"
               >
-                <div className="lines flex flex-col gap-[3px] sm:gap-[4px]">
-                  <div className="w-6 sm:w-8 h-[2px] bg-white"></div>
-                  <div className="w-4 sm:w-6 h-[2px] bg-white"></div>
-                  <div className="w-3 sm:w-4 h-[2px] bg-white"></div>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl text-white">
-                  Menu
-                </h3>
-              </div>
-            </div>
+                View Work
+              </a>
 
-            {/* 🔘 Menu Drawer */}
-            {menuOpen && (
-              <div className="fixed top-0 left-0 w-full h-screen bg-black/90 z-[100] flex flex-col items-center justify-center space-y-4 sm:space-y-6 text-white text-2xl sm:text-3xl md:text-4xl px-4">
-                <button
-                  onClick={() => setMenuOpen(false)}
-                  className="absolute top-4 right-4 text-xl sm:top-6 sm:right-8 sm:text-2xl"
-                >
-                  ✕
-                </button>
-
-                {/* 🟣 Menu Links with smooth scroll and purple hover */}
-                <a
-                  href="#about"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .querySelector("#about")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setMenuOpen(false);
-                  }}
-                  className="hover:text-purple-500 transition duration-300"
-                >
-                  About
-                </a>
-
-                <a
-                  href="#projects"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .querySelector("#projects")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setMenuOpen(false);
-                  }}
-                  className="hover:text-purple-500 transition duration-300"
-                >
-                  Projects
-                </a>
-
-                <a
-                  href="#experience"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .querySelector("#experience")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setMenuOpen(false);
-                  }}
-                  className="hover:text-purple-500 transition duration-300"
-                >
-                  Experience
-                </a>
-
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .querySelector("#contact")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setMenuOpen(false);
-                  }}
-                  className="hover:text-purple-500 transition duration-300"
-                >
-                  Contact
-                </a>
-              </div>
-            )}
-
-            {/* background images */}
-
-            <div className="imagesdiv relative overflow-hidden w-full h-screen">
-              <img
-                className="absolute sky top-0 left-0 w-full h-full object-cover rotate-[-10deg] scale-[1.2] sm:scale-[1.2] md:scale-[1.05] lg:scale-[1.1]"
-                src="./sky.png"
-                alt=""
-              />
-              <img
-                className="absolute bg top-0 left-0 w-full h-full object-cover rotate-[-2deg] scale-[1.2] sm:scale-[1.2] md:scale-[1.05] lg:scale-[1.1]"
-                src="./bg.png"
-                alt=""
-              />
-
-              {/* text behind the images */}
-              <div className="text text-white flex flex-col absolute top-[2%] left-1/2 -translate-x-1/2 rotate-[-10deg] text-center">
-                {/* Word 1: Designer - Top Right */}
-                <h1 className="text-[3.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] xl:text-[8rem] leading-none">
-                  Designer.
-                </h1>
-                <h1 className="text-[3.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] xl:text-[8rem] leading-none">
-                  Developer.
-                </h1>
-
-                {/* <div className="flex justify-center items-center gap-[2rem] sm:gap-[10rem] md:gap-[10rem] lg:gap-[15rem] xl:gap-[20rem]">
-                  <h1 className="text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem] xl:text-[9rem] leading-none  lg:ml-20">
-                    Developer.
-                  </h1>
-                  <h1 className="text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem] xl:text-[9rem] leading-none">
-                    Doer.
-                  </h1>
-                </div> */}
-              </div>
-
-              {/* my own image */}
-              <img
-                className="absolute character left-1/2 -translate-x-1 bottom-24 sm:bottom-16 md:bottom-8 w-[60vw] max-w-[380px] h-auto rotate-[-10deg]"
-                src="./me.png"
-                alt=""
-              />
-            </div>
-
-            {/* scroll icon */}
-
-            <div className="btmbar text-white absolute bottom-0 left-0 w-full py-15 px-10 bg-gradient-to-t from-black to-transparent">
-              <div className="flex gap-0 sm:gap-3 items-center">
-                <i className="text-3xl sm:text-4xl ri-arrow-down-line"></i>
-                <h3 className="text-base sm:text-lg  font-[sans-serif] ">
-                  Scroll Down
-                </h3>
-              </div>
-
-              {/* <img
-                className="absolute h-[55px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                src="./ps5.png"
-                alt=""
-              />  */}
+              <a
+                href="#contact"
+                className="px-7 py-3 rounded-full font-semibold text-white
+                           border border-white/60
+                           hover:bg-[#FF9F1C] hover:text-black
+                           transition"
+              >
+                Contact
+              </a>
             </div>
           </div>
         </div>
-      )}
-    </>
+      </div>
+
+      {/* BOTTOM BLEND */}
+      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-6
+                      bg-gradient-to-t from-black via-black/40 to-transparent" />
+    </section>
   );
 }
 
-export default App;
+export default Hero;

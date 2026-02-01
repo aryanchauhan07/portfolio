@@ -1,11 +1,34 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "remixicon/fonts/remixicon.css";
 
-const ContactSection = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const Contact = () => {
   const form = useRef();
   const [loading, setLoading] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".contact-anim",
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      }
+    );
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -20,134 +43,133 @@ const ContactSection = () => {
       )
       .then(
         () => {
-          toast.success("Message sent successfully! 🚀");
+          toast.success("Message sent successfully!");
           form.current.reset();
         },
-        (error) => {
-          toast.error("Failed to send message 😓");
-          console.error(error);
-        }
+        () => toast.error("Failed to send message")
       )
       .finally(() => setLoading(false));
   };
 
+  const socials = [
+    { icon: "ri-github-line", url: "https://github.com/aryanchauhan07" },
+    { icon: "ri-linkedin-box-line", url: "https://www.linkedin.com/in/aryanchauhan07/" },
+    { icon: "ri-instagram-line", url: "https://www.instagram.com/_aryanchauhan__/" },
+    { icon: "ri-mail-line", url: "mailto:aryxnch@gmail.com" },
+  ];
+
   return (
     <section
+      ref={sectionRef}
       id="contact"
-      className="w-full px-6 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-[#0f0f11] to-[#16141d] text-white "
+      className="relative w-full pt-32 pb-20 md:pt-40 md:pb-28 px-4 md:px-12 text-white border-t-2 border-white/50 overflow-hidden"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* LEFT TEXT */}
-        <div>
-          <h2 className="text-4xl sm:text-5xl font-pricedown mb-6">
-            Contact <span className="text-purple-400">me</span> for <br />
-            collaboration
-          </h2>
-          <p className="text-gray-400 mb-6 font-sans">
-            Let’s build something meaningful together — I’d love to hear from
-            you!
-          </p>
-          <div className="flex gap-4 mt-6">
-            <a
-              href="https://github.com/aryanchauhan07"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i className="ri-github-line text-white text-2xl hover:text-purple-400"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/aryanchauhan07/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i className="ri-linkedin-box-line text-white text-2xl hover:text-purple-400"></i>
-            </a>
-            {/* <a
-              href="https://x.com/yourusername"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i className="ri-twitter-x-line text-white text-2xl hover:text-purple-400"></i>
-            </a> */}
-            <a
-              href="https://www.instagram.com/_aryanchauhan__/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i className="ri-instagram-line text-white text-2xl hover:text-purple-400"></i>
-            </a>
+      {/* BACKGROUND IMAGE */}
+      <img
+        src="/images/contact.jpeg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
-            <a href="mailto:aryxnch@gmail.com" target="_blank" rel="noreferrer">
-              <i className="ri-mail-line text-white text-2xl hover:text-purple-400"></i>
-            </a>
-          </div>
+      {/* DARK CINEMATIC OVERLAY */}
+      <div className="absolute inset-0 bg-black/65" />
+
+      {/* CINEMATIC FADE FROM EXPERIENCE */}
+      <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#0f0f12] to-transparent" />
+
+      {/* SOFT BOTTOM FADE */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent" />
+
+      <div className="relative max-w-6xl mx-auto space-y-20">
+
+        {/* HEADER */}
+        <div className="text-center space-y-4 contact-anim">
+          <h2 className="text-[clamp(2.2rem,6vw,4rem)] font-semibold">
+            Let’s build something
+          </h2>
+          <p className="text-white/70 max-w-xl mx-auto">
+            Got an idea or a project in mind? Let’s talk.
+          </p>
         </div>
 
-        {/* RIGHT FORM */}
-        <form
-          ref={form}
-          onSubmit={sendEmail}
-          className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-2xl shadow-2xl w-full max-w-xl space-y-6"
-        >
-          <div>
-            <h3 className="text-sm tracking-widest text-purple-300 uppercase font-sans">
-              Get in touch
-            </h3>
-            <h2 className="text-4xl  text-white mb-4 ">Contact.</h2>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+
+          {/* LEFT INFO */}
+          <div className="space-y-8 contact-anim">
+            <p className="text-white/80 leading-relaxed">
+              I’m currently open for freelance and collaborations.  
+              Design, development, or something in between — let’s make it real.
+            </p>
+
+            <div className="flex gap-4">
+              {socials.map((s, i) => (
+                <a
+                  key={i}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:border-[#C17AFE] transition"
+                >
+                  <i
+                    className={`${s.icon} text-xl text-white/70 hover:text-[#C17AFE] transition`}
+                  />
+                </a>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-white/60">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              Available for work
+            </div>
           </div>
 
-          <div className="space-y-4 font-sans">
-            <div>
-              <label className="text-white font-semibold text-sm">
-                Your Name
-              </label>
-              <input
-                type="text"
-                name="from_name"
-                placeholder="Enter your name"
-                required
-                className="mt-1 w-full p-3 bg-[#1b1825] text-white rounded-md border border-white/10 focus:ring-2 focus:ring-purple-500 outline-none transition"
-              />
-            </div>
+          {/* FORM */}
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="contact-anim p-8 rounded-3xl bg-black/55 border border-white/10 backdrop-blur-sm space-y-5"
+          >
+            <input
+              type="text"
+              name="from_name"
+              placeholder="Your name"
+              required
+              className="w-full bg-transparent border-b border-white/30 focus:border-[#C17AFE] outline-none py-2 text-white placeholder:text-white/50"
+            />
 
-            <div>
-              <label className="text-white font-semibold text-sm">
-                Your Email
-              </label>
-              <input
-                type="email"
-                name="from_email"
-                placeholder="What's your email?"
-                required
-                className="mt-1 w-full p-3 bg-[#1b1825] text-white rounded-md border border-white/10 focus:ring-2 focus:ring-purple-500 outline-none transition"
-              />
-            </div>
+            <input
+              type="email"
+              name="from_email"
+              placeholder="Your email"
+              required
+              className="w-full bg-transparent border-b border-white/30 focus:border-[#C17AFE] outline-none py-2 text-white placeholder:text-white/50"
+            />
 
-            <div>
-              <label className="text-white font-semibold text-sm">
-                Your Message
-              </label>
-              <textarea
-                name="message"
-                placeholder="What do you want to say?"
-                rows="5"
-                required
-                className="mt-1 w-full p-3 bg-[#1b1825] text-white rounded-md border border-white/10 focus:ring-2 focus:ring-purple-500 outline-none transition"
-              ></textarea>
-            </div>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Tell me about your project..."
+              required
+              className="w-full bg-transparent border-b border-white/30 focus:border-[#C17AFE] outline-none py-2 resize-none text-white placeholder:text-white/50"
+            />
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white py-3 rounded-md font-semibold transition-all"
               disabled={loading}
+              className="w-full mt-4 py-3 rounded-full border border-[#C17AFE] text-[#C17AFE] hover:bg-[#C17AFE] hover:text-black transition"
             >
-              {loading ? "Sending..." : "Send"}
+              {loading ? "Sending..." : "Send message"}
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
+
+        {/* FOOTER */}
+        <div className="pt-12 border-t border-white/10 text-center text-sm text-white/50">
+          © {new Date().getFullYear()} Aryan Chauhan — Designed & built with intention
+        </div>
       </div>
     </section>
   );
 };
 
-export default ContactSection;
+export default Contact;
